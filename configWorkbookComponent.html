@@ -1,0 +1,31 @@
+<template>
+    <div class="slds-var-p-around_medium">
+        <div class="spinner">
+            <div if:true={isSpinner}>
+                <lightning-spinner
+                    alternative-text="Loading..." variant="brand" size="medium">
+                </lightning-spinner>
+            </div>
+        </div> 
+        <lightning-card >
+            <div class="slds-grid slds-gutters" style="margin-left:40px">
+                <div class="slds-col slds-size_1-of-2">
+                    <lightning-dual-listbox
+                        name="objectListbox"
+                        label="Available Objects"
+                        source-label="Available"
+                        selected-label="Selected"
+                        field-level-help="Select the objects"
+                        options={availableOptions}
+                        value={selectedOptions}
+                        onchange={handleSelectionChange}
+                        class="dual-listbox">
+                    </lightning-dual-listbox>
+                </div>
+            </div>
+            <div style="margin-bottom:40px; margin-right:10px;">
+                <button class="slds-button slds-button_brand slds-float_right" onclick={handleDocument} title="Create Document">Create Document</button>
+            </div>
+        </lightning-card>
+    </div>
+</template>
